@@ -13,8 +13,8 @@ export async function Navbar() {
   ];
 
   return (
-    <nav className="fixed w-[100%] z-[2] bg-white/80 bg-opacity-80 backdrop-blur-md inset-0 h-[10vh] lg:h-[10vh] flex items-center border-b border-solid border-black/5">
-      <div className="w-full max-w-[80%] m-auto flex items-center">
+    <nav className="fixed w-[100%] z-50 bg-white/80 bg-opacity-80 backdrop-blur-md inset-0 h-[10vh] lg:h-[10vh] flex items-center border-b border-solid border-black/5">
+      <div className="w-full max-w-6xl m-auto flex items-center">
         <aside className="w-[250px]">
           <Link href="/">
             <Image
@@ -42,8 +42,11 @@ export async function Navbar() {
         <aside className="flex w-[250px] justify-end items-center ml-auto gap-x-5">
           <Button variant="link">Sign in</Button>
           <Button
-            variant="secondary"
-            className="bg-[#C5FD2C] rounded-full"
+            variant="primary"
+            className="rounded-full font-no"
+            style={{
+              boxShadow: "0px 1px 10px rgba(197, 253, 44, 0.5)",
+            }}
             size="lg"
           >
             Try Akkio
