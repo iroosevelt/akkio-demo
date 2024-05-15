@@ -70,7 +70,7 @@ export default function Benefits() {
   };
 
   return (
-    <section className="bg-[#F5F5F5] w-full h-auto flex flex-col">
+    <section className="bg-[#F5F5F5] w-full h-auto py-12 lg:py-0 lg:pb-16 flex flex-col">
       {/* Header */}
       <div className="max-w-full md:max-w-[50%] flex flex-col gap-y-12 justify-center items-center mx-auto px-4 md:px-24 pt-8 md:pt-32">
         <h1 className="font-normal tracking-tight md:leading-snug text-3xl md:text-5xl text-center">
@@ -79,6 +79,30 @@ export default function Benefits() {
       </div>
 
       {/* Main content: smaller screens */}
+      <div className="lg:hidden relative w-full md:w-1/4 p-4 grid grid-cols-1 gap-8 mt-8 md:mt-0">
+        {cards.map((card: Card, index: number) => (
+          <div
+            key={index}
+            className="p-4 md:p-6 space-y-4 border-none rounded-xl cursor-pointer bg-white"
+          >
+            <h2 className="font-normal text-lg mb-2">{card.title}</h2>
+            <p className="text-gray-700 font-light text-md">
+              {card.description}
+            </p>
+            <div className="w-full h-auto">
+              <Image
+                src={card.image}
+                layout="responsive"
+                width={100}
+                height={100}
+                objectFit="contain"
+                alt="Laptop screen"
+                className=""
+              />
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* Main content: larger screens */}
       <div className="hidden md:flex flex-col md:flex-row justify-center md:items-center my-12">
