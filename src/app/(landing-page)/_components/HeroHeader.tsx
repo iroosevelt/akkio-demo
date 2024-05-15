@@ -28,16 +28,16 @@ export default function HeroHeader() {
             Streamline your data management with Akkio&apos;s no-code automation
             platform.
           </p>
-          <div className="flex justify-center w-full gap-x-4 mt-6">
+          <div className="flex flex-col md:flex-row justify-center w-full gap-y-4 gap-x-4 px-8 mt-6">
             <Button
-              className="bg-[#1F1F1F] text-white font-light rounded-full px-8 py-8 text-xl"
+              className="bg-[#1F1F1F] text-white font-light rounded-full px-6 py-6 text-md md:px-8 md:py-8 md:text-xl"
               size="lg"
             >
               Book a call
             </Button>
             <Button
               variant="primary"
-              className="rounded-full font-normal shadow-md:shadow-yellow-400 px-16 py-8 text-xl"
+              className="rounded-full font-normal shadow-md:shadow-yellow-400 px-8 py-6 text-lg md:px-16 md:py-8 md:text-xl"
               size="lg"
               style={{
                 boxShadow: "0px 1px 10px rgba(197, 253, 44, 0.5)",
@@ -49,14 +49,14 @@ export default function HeroHeader() {
         </div>
       </header>
       <aside
-        className="w-[90%] border-2 border-black/10  md:max-w-6xl h-[200px] md:h-[648px] mx-auto rounded-3xl -mt-24 md:-mt-24 bg-white"
+        className="w-[90%] border-2 border-black/10  md:max-w-5xl h-[200px] md:h-[630px] mx-auto rounded-3xl -mt-12 md:-mt-24 bg-[#F5F5F5]"
         // style={{ boxShadow: "100px 50px 250px rgba(9, 20, 50, 0.15)" }}
         style={{ boxShadow: "25px 45px 80px 20px rgba(9, 20, 50, 5%)" }}
         // style={{ boxShadow: "1px 1px 10px 1px rgba(9, 20, 50, 0.10)" }}
       >
         <video
           ref={videoRef}
-          className="w-full h-full object-cover rounded-3xl"
+          className="w-full h-full  object-scale-down rounded-3xl"
           autoPlay
           loop
           muted

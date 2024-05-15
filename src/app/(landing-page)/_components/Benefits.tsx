@@ -13,18 +13,21 @@ interface Card {
 // Card data array
 const cards: Card[] = [
   {
-    title: "Benefit 1",
-    description: "Description of benefit 1.",
+    title: "Pitch",
+    description:
+      "Quickly create a client dashboard in your preso to highlight how you’re using AI to identify wasted ad spend, top performing ads by conversion rate, and more.",
     image: "/1.png",
   },
   {
-    title: "Benefit 2",
-    description: "Description of benefit 2.",
+    title: "Predict",
+    description:
+      "Automatically surface patterns in historical data to predict future outcomes and generate key insights for how to slow client churn, improve campaigns, and more.",
     image: "/2.png",
   },
   {
-    title: "Benefit 3",
-    description: "Description of benefit 3.",
+    title: "Perform",
+    description:
+      "Optimize for any KPI to improve client performance and happiness. Eliminate wasted time, wasted spend, and wasted opportunities.",
     image: "/1.png",
   },
 ];
@@ -70,30 +73,34 @@ export default function Benefits() {
     <section className="bg-[#F5F5F5] w-full h-auto flex flex-col">
       {/* Header */}
       <div className="max-w-full md:max-w-[50%] flex flex-col gap-y-12 justify-center items-center mx-auto px-4 md:px-24 pt-8 md:pt-32">
-        <h1 className="font-normal tracking-tight leading-snug text-3xl md:text-5xl text-center">
+        <h1 className="font-normal tracking-tight md:leading-snug text-3xl md:text-5xl text-center">
           Turn AI into an opportunity. Not a threat.
         </h1>
       </div>
 
-      {/* Main content */}
-      <div className="flex flex-col md:flex-row justify-center items-center mt-12">
+      {/* Main content: smaller screens */}
+
+      {/* Main content: larger screens */}
+      <div className="hidden md:flex flex-col md:flex-row justify-center md:items-center my-12">
         {/* Laptop screen area */}
         <div
-          className="relative w-full h-auto md:w-[60%] p-4"
+          className="relative w-full h-auto md:w-[60%] rounded-2xl  border-2 border-black/10 bg-white p-4"
           style={{
             backgroundImage: `url("/macbook.png")`,
             backgroundSize: "contain",
             backgroundPosition: "left",
             backgroundRepeat: "no-repeat",
+            boxShadow: "25px 45px 80px 20px rgba(9, 20, 50, 5%)",
           }}
         >
-          <div className="relative w-[75%] h-0 pb-[56.25%] mt-8 mx-auto">
-            <div className="absolute top-0 left-0 w-full h-full">
+          <div className="relative w-[75%] h-0 pb-[56.25%]  mt-8 mx-auto ">
+            <div className="absolute top-0 left-0 w-full  h-full  ">
               <Image
                 src={selectedImage}
                 layout="fill"
                 objectFit="contain"
                 alt="Laptop screen"
+                className=""
               />
             </div>
           </div>
@@ -101,14 +108,18 @@ export default function Benefits() {
 
         {/* Cards grid */}
         <div className="w-full md:w-1/4 p-4 grid grid-cols-1 gap-4 mt-8 md:mt-0">
-          {cards.map((card, index) => (
+          {cards.map((card: Card, index: number) => (
             <div
               key={index}
-              className="bg-white p-4 border rounded-lg shadow-lg cursor-pointer"
+              className={`p-4 md:p-6 border-none rounded-xl cursor-pointer ${
+                currentIndex === index ? "bg-white" : "bg-transparent"
+              }`}
               onClick={() => handleCardClick(index)}
             >
-              <h2 className="font-bold text-xl mb-2">{card.title}</h2>
-              <p className="text-gray-700">{card.description}</p>
+              <h2 className="font-normal text-lg mb-2">{card.title}</h2>
+              <p className="text-gray-700 font-light text-md">
+                {card.description}
+              </p>
             </div>
           ))}
         </div>

@@ -54,16 +54,16 @@ export function NewsCarousel() {
         }),
       ]}
       opts={{ align: "start", loop: true }}
-      className="w-full max-w-6xl"
+      className="w-full md:max-w-6xl"
     >
       <CarouselContent>
         {articles.map((article, index) => (
           <CarouselItem
             key={index}
-            className="md:basis-1/2 lg:basis-1/3 rounded-3xl"
+            className="md:basis-1/2 lg:basis-1/2 rounded-3xl"
           >
             <div className="p-1">
-              <Card className="relative flex flex-col w-full h-[390px] rounded-3xl bg-[#F5F5F5] overflow-hidden">
+              <Card className="relative flex flex-col w-full h-[380px] md:h-[390px] md:p-4 shadow-none border-none rounded-3xl bg-[#F5F5F5] overflow-hidden">
                 <CardHeader className="flex flex-row justify-between items-center">
                   <Image
                     src={article.logo}
@@ -73,14 +73,16 @@ export function NewsCarousel() {
                     // layout="responsive"
                   />
                 </CardHeader>
-                <CardContent className="flex-1">
-                  <h2>{article.title}</h2>
-                  <p>{article.description}</p>
+                <CardContent className="flex-1 flex flex-col md:gap-y-4">
+                  <h2 className="md:text-2xl font-normal">{article.title}</h2>
+                  <p className="text-md font-normal opacity-80">
+                    {article.description}
+                  </p>
                 </CardContent>
                 <CardFooter className="flex-col items-start justify-end mt-auto">
                   <a href={article.link} target="_blank">
-                    <Button>
-                      Read
+                    <Button variant="link">
+                      Read more
                       <ArrowUpRight />
                     </Button>
                   </a>

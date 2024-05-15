@@ -27,7 +27,7 @@ const testimonials = [
     text: "LA/VIE is a cutting-edge digital marketing consultancy founded by marketers based in Los Angeles and Vienna. They create and optimize paid creative campaigns for a book of business totaling more than $250M in ad spend.",
     title: "70%",
     description: "Reduction in reporting workload with AI tagging",
-    background: "(link unavailable)",
+    background: "/testimonial1.webp",
   },
   {
     logo: "/logo.svg",
@@ -35,7 +35,7 @@ const testimonials = [
     text: "Ellipsis is a world-class SEO Content agency. They deliver ranking results, backed by expertise, technology, and process.",
     title: "80%",
     description: "Reduction in reporting workload with AI tagging",
-    background: "(link unavailable)",
+    background: "/testimonial2.webp",
   },
   {
     logo: "/logo.svg",
@@ -43,7 +43,7 @@ const testimonials = [
     text: "Sterling is on the leading-edge of Democratic campaigning, working with campaigns from the local to the national level and offer full-service scalable fundraising.",
     title: "60%",
     description: "Reduction in reporting workload with AI tagging",
-    background: "(link unavailable)",
+    background: "/testimonial3.webp",
   },
   // ...
 ];
@@ -57,7 +57,7 @@ export function CardCarousel() {
         }),
       ]}
       opts={{ align: "start", loop: true }}
-      className="w-full max-w-6xl"
+      className="w-full md:max-w-6xl"
     >
       <CarouselContent>
         {testimonials.map((testimonial, index) => (
@@ -67,7 +67,7 @@ export function CardCarousel() {
           >
             <div className="p-1">
               <Card
-                className="relative flex flex-col w-full h-[485px] rounded-3xl overflow-hidden"
+                className="relative flex flex-col w-full h-[450px] md:h-[485px] rounded-3xl overflow-hidden"
                 style={{
                   backgroundImage: `url(${testimonial.background})`,
                   backgroundSize: "cover",
@@ -75,35 +75,46 @@ export function CardCarousel() {
                 }}
               >
                 <div
-                  className="absolute inset-0 opacity-50"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%)",
-                  }}
-                />
+                  className="flex flex-col h-full inset-0"
+                  style={{ background: "rgba(0,0,0, 20%)" }}
+                >
+                  <CardHeader className="flex flex-row justify-between items-center">
+                    <div className="w-sm h-5">
+                      <Image
+                        src={testimonial.logo}
+                        alt="Logo"
+                        width={100}
+                        height={100}
+                        layout="responsive"
+                      />
+                    </div>
+                    <a href={testimonial.link} target="_blank">
+                      <Button
+                        variant="ghost"
+                        className="text-white font-normal text-md md:text-lg"
+                      >
+                        Case Study
+                        <ArrowUpRight />
+                      </Button>
+                    </a>
+                  </CardHeader>
 
-                <CardHeader className="flex flex-row justify-between items-center">
-                  <Image
-                    src={testimonial.logo}
-                    alt="Logo"
-                    width={100}
-                    height={100}
-                    // layout="responsive"
-                  />
-                  <a href={testimonial.link} target="_blank">
-                    <Button>
-                      Case Study
-                      <ArrowUpRight />
-                    </Button>
-                  </a>
-                </CardHeader>
-                <CardContent className="flex-1">
-                  <p>{testimonial.text}</p>
-                </CardContent>
-                <CardFooter className="flex-col items-start justify-end mt-auto">
-                  <h2>{testimonial.title}</h2>
-                  <p>{testimonial.description}</p>
-                </CardFooter>
+                  <div className="flex flex-col h-full bg-gradient-to-b from-transparent to-black/85 backdrop-blur-[12px]">
+                    <CardContent className="flex-1 py-4 md:py-12">
+                      <p className="text-white/80 font-light text-md md:text-lg">
+                        {testimonial.text}
+                      </p>
+                    </CardContent>
+                    <CardFooter className="flex-col py-6 md:py-12 items-start justify-end mt-auto">
+                      <h2 className="text-2xl md:text-5xl text-white/50">
+                        {testimonial.title}
+                      </h2>
+                      <p className="text-white/80 text-sm md:text-lg">
+                        {testimonial.description}
+                      </p>
+                    </CardFooter>
+                  </div>
+                </div>
               </Card>
             </div>
           </CarouselItem>

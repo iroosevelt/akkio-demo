@@ -6,9 +6,11 @@ import { NewsCarousel } from "@/components/news-carousel";
 export default function News() {
   return (
     <Container>
-      <section className="flex flex-col gap-6 py-40">
-        <aside className="flex flex-col pb-20 gap-4">
-          <h2 className="text-5xl font-400 text-center">Akkio in the news</h2>
+      <section className="flex flex-col gap-6 py-16 md:py-40">
+        <aside className="flex flex-col pb-5 md:pb-20 gap-4">
+          <h2 className="text-4xl md:text-5xl font-400 text-center">
+            Akkio in the news
+          </h2>
         </aside>
         <aside>
           <NewsCarousel />
