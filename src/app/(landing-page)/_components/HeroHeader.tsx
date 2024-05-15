@@ -28,16 +28,16 @@ export default function HeroHeader() {
             Streamline your data management with Akkio&apos;s no-code automation
             platform.
           </p>
-          <div className="flex flex-col md:flex-row justify-center w-full gap-y-4 gap-x-4 px-8 mt-6">
+          <div className="flex flex-col md:flex-row justify-center w-full gap-y-4 gap-x-4 px-12 mt-6">
             <Button
-              className="bg-[#1F1F1F] text-white font-light rounded-full px-6 py-6 text-md md:px-8 md:py-8 md:text-xl"
+              className="bg-[#1F1F1F] text-white font-light rounded-full px-6 py-7 text-md md:px-8 md:py-8 md:text-xl"
               size="lg"
             >
               Book a call
             </Button>
             <Button
               variant="primary"
-              className="rounded-full font-normal shadow-md:shadow-yellow-400 px-8 py-6 text-lg md:px-16 md:py-8 md:text-xl"
+              className="rounded-full font-normal shadow-md:shadow-yellow-400 px-8 py-8 text-lg md:px-16 md:py-8 md:text-xl"
               size="lg"
               style={{
                 boxShadow: "0px 1px 10px rgba(197, 253, 44, 0.5)",

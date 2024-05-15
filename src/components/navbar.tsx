@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Transition } from "./transitions";
+import { MobileNav } from "./mobile-nav";
 
 export async function Navbar() {
   const links = [
@@ -14,7 +15,7 @@ export async function Navbar() {
 
   return (
     <nav className="fixed w-[100%] z-50 bg-white/80 bg-opacity-80 backdrop-blur-md inset-0 h-[10vh] lg:h-[10vh] flex items-center border-b border-solid border-black/5">
-      <div className="w-full md:max-w-5xl m-auto flex items-center">
+      <div className="w-full px-5 md:max-w-5xl m-auto flex items-center">
         <aside className="md:w-[250px]">
           <Link href="/">
             <Image
@@ -28,7 +29,10 @@ export async function Navbar() {
             />
           </Link>
         </aside>
-        <div className="hidden md:flex capitalize flex-1 items-center justify-center gap-x-8 w-full rounded-full">
+        <div className="flex lg:hidden ml-auto">
+          <MobileNav />
+        </div>
+        <div className="hidden lg:flex capitalize flex-1 items-center justify-center gap-x-8 w-full rounded-full">
           {links.map((link) => (
             <Link
               key={link.label}
@@ -39,7 +43,7 @@ export async function Navbar() {
             </Link>
           ))}
         </div>
-        <aside className="flex md:w-[250px] justify-end items-center ml-auto gap-x-5">
+        <aside className="hidden lg:flex md:w-[250px] justify-end items-center ml-auto gap-x-5">
           <Button variant="link">Sign in</Button>
           <Button
             variant="primary"
